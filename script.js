@@ -9,6 +9,29 @@ let scores=JSON.parse(localStorage.getItem('score'));
 
         updateScore();
 
+        document.querySelector('.js-rock-button').addEventListener('click', ()=>{
+            playGame('rock');
+        });
+        document.querySelector('.js-paper-button').addEventListener('click', ()=>{
+            playGame('paper');
+        });
+        document.querySelector('.js-scissor-button').addEventListener('click', ()=>{
+            playGame('scissors');
+        });
+
+        document.querySelector('.js-reset-button').addEventListener('click', ()=>{
+            scores.wins=0;
+            scores.losses=0;
+            scores.ties=0;
+            localStorage.removeItem('score');
+            updateScore();
+        });
+
+        document.querySelector('.js-autoPlay-button').addEventListener('click', ()=>{
+            startAutoPlay();
+        });
+
+
         let isPlaying=false;
         let intervalID;
 
